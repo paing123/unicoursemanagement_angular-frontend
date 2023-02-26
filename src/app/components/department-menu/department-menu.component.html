@@ -1,0 +1,15 @@
+<div class="menu-sidebar-content js-scrollbar1">
+  <nav class="navbar-sidebar">
+    <ul class="list-unstyled navbar-list">
+    <h4>Department</h4>
+    </ul>
+    <ul class="list-unstyled navbar-list">
+      <li *ngFor="let d of departments">
+        <a routerLink="/department/{{ d.id }}" routerLinkActive="active-link">
+          {{ d.code }}
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+

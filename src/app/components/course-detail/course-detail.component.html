@@ -1,0 +1,26 @@
+<div [ngStyle]="{'display': course ? '' : 'none' }">
+  <div class="detail-section" style="margin-top : 77px;">
+    <div class="container-fluid" >
+      <h3>Course Detail</h3>
+      <table class="table" style="text-align: left">
+        <tr>
+          <th>Department</th>
+          <td>{{department?.departmentName}} ({{department?.code}})</td>
+        </tr>
+        <tr>
+          <th>Number</th>
+          <td>{{course?.number}}</td>
+        </tr>
+        <tr>
+          <th>Title</th>
+          <td>{{course?.title}}</td>
+        </tr>
+        <tr>
+          <th>Description</th>
+          <td>{{course?.description}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<hr>

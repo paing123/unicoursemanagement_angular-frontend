@@ -1,0 +1,59 @@
+<div class="row">
+  <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12" style="margin-top: 72px;" align="left">
+    <span>{{currentDepartment?.departmentName}} <span *ngIf="currentDepartment">Department</span></span>
+    <table class="table">
+      <thead class="thead-dark">
+      <tr>
+        <th>No.</th>
+        <th>Title</th>
+      </tr>
+      </thead>
+      <tbody style="text-align: left">
+      <tr *ngFor="let c of courses">
+        <td class="align-middle">
+          <u (click)="getCourseDetail(c)" routerLinkActive="active-link">
+            {{ c.number }}
+          </u>
+        </td>
+        <td class="align-middle">{{ c.title }}</td>
+      </tr>
+      </tbody>
+    </table>
+    <!-- if courses is empty then display a message -->
+    <div *ngIf="courses?.length == 0" class="alert alert-warning col-md-12 mt-5" role="alert">
+      No course found.
+    </div>
+    <!-- begin footer -->
+    <div class="footer-pagination mt-3">
+      <div class="row">
+        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12 mt-4">
+          <ngb-pagination [(page)]="thePageNumber"
+                          [pageSize]="thePageSize"
+                          [maxSize] = "3"
+                          [boundaryLinks] = true
+                          [collectionSize]="theTotalElements"
+                          (pageChange)="listCourses()">
+          </ngb-pagination>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+          <span style="margin-left: 40px;">Page Size</span>
+          <select (change)="updatePageSize($any($event.target).value)" class="form-control form-select" style="width: 55%; margin-left: 37px;">
+            <option>5</option>
+            <option selected="true">10</option>
+            <option>20</option>
+            <option>50</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <!-- end footer -->
+  </div>
+  <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12">
+    <app-course-detail [department]="currentDepartment" [course]="currentCourse"></app-course-detail>
+    <app-section [department]="currentDepartment" [course]="currentCourse" [sections]="currentSections"></app-section>
+  </div>
+</div>
+
+
+
+

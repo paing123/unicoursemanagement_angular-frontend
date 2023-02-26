@@ -1,0 +1,11 @@
+table th, td{
+  border: 1px solid black;
+}
+
+u{
+  cursor: pointer;
+}
+
+u:hover {
+  background-color: #ccc;
+}
